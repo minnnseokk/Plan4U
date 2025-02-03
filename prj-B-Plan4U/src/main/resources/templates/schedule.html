@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${room.title} + ' - 스케쥴'">일정 작성</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+	<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+	<link th:href="@{/css/header.css}" rel="stylesheet">
+	<link th:href="@{/css/chatting.css}" rel="stylesheet">
+	<link th:href="@{/css/schedule.css}" rel="stylesheet">
+</head>
+<body>
+	<div class="whole">
+		<div id="topMenuDiv">
+			<a href="/app/mainpage" id="mainLogoA"> <img id="logoImage"
+				src="/image/임시로고.png">
+			</a>
+			<div id="topMenuRight">
+				<div class="topMenuItem" th:text="${#authentication.name} + ' 님!'">사용자</div>
+				<a class="topMenuItem logout" href="/app/logout">로그아웃</a> <a
+					id="roomsetting" class="topMenuItem logout"
+					th:href="@{/app/roomsetting/{id}(id=${room.id})}">방 정보 수정</a>
+			</div>
+		</div>
+		<div class="middleArea">
+			<div class="middleHeader">
+				<div class="menu">
+					<div class="menuItem">
+						<a th:href="@{/app/base/{id}(id=${room.id})}" class="menuItemMain">메인</a>
+					</div>
+					<div class="menuItem">
+						<a th:href="@{/app/calendar/{id}(id=${room.id})}"
+							class="menuItemCalendar">캘린더</a>
+					</div>
+					<div class="menuItem">
+						<a th:href="@{/app/calculator/{id}(id=${room.id})}"
+							class="menuItemCalculator">계산기</a>
+					</div>
+					<div class="menuItem">
+						<a th:href="@{/app/memo/{id}(id=${room.id})}" class="menuItemMemo">메모장</a>
+					</div>
+					<div class="menuItem">
+						<a th:href="@{/app/gallery/{id}(id=${room.id})}"
+							class="menuItemUpload">갤러리</a>
+					</div>
+				</div>
+			</div>
+			<div class="notification">
+				<div class="notificationText" th:text="${room.title}">[제목] 제목을
+					입력하세요!</div>
+			</div>
+			<div class="main">
+				<div class="mainLeft">
+					<div class="functionMain">
+						<span id="roomId" th:data-room-id="${room.id}"></span>
+						<span id="date" th:data-date="${date}"></span>
+					    <form>    
+					    	<div id="inputContainer" class="swiper">
+							  <!-- Additional required wrapper -->
+							  <div id="dateContainer"  class="swiper-wrapper">
+						            <!-- 다중 날짜의 세부 일정이 여기에 동적으로 추가됩니다. -->
+					          </div>
+						        
+						          <div class="swiper-scrollbar"></div>
+					       </div>
+					        <!-- 
+					        <label for="content">내용:</label>
+					        <textarea id="content" name="content" rows="4" required></textarea>
+					        <br />
+					        -->
+					    </form>
+						<br>
+					    <form id="scheduleForm">
+						    <div class="swiper">
+							    <div class="swiper-wrapper" id="showDateSchedule">
+							        <!-- 날짜별 스케줄이 여기에 동적으로 추가됩니다 -->
+							    </div>
+							    <div class="swiper-scrollbar"></div>
+							</div>
+						    <button id="scheduleButton" type="submit">저장</button>
+					    </form>
+					</div>
+				</div>
+				<div class="mainChatting">
+					<div class="chatting1">
+						<h4 class="chatting2" style="color:black" >
+                            [공지사항 :: /pop=]<br>
+                            <span id="announce">[공지사항]</span>
+                        </h4>
+
+
+						<div class="online-users">
+							<h4 style="color: black">
+								접속 중 [<span id="user-count">0</span>명 :: <span id="user-list"></span>]
+							</h4>
+						</div>
+
+						<div id="chatting_area">
+							<div>
+								<template id="chattinglog">
+									<div class="chat">
+										<span class="author"></span> <span class="chatting"></span>
+									</div>
+								</template>
+							</div>
+						</div>
+						<div class="chatInputArea">
+							<input id="chatting_input">
+							<button type="button">입력</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+    <script>
+    document.getElementById('scheduleForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // 폼 제출 기본 동작 방지
+        saveSchedule();
+    });
+    </script>
+    <script th:inline="javascript"  th:if="${alertMessage == null}">
+	// ** 빨간줄 오류 아님 - authUser 이름 가져오기 
+		const currentUserName = [[${userName}]] + ': ';
+		var dates = [[${dates}]];
+	</script>
+	<script th:src="@{/js/websocket.js}" defer></script>
+    <script src="/js/schedule.js"></script> <!-- 외부 JS 파일 연결 -->
+</body>
+</html>

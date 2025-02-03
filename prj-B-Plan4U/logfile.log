@@ -1,0 +1,23 @@
+2024-09-04T23:56:48.390+09:00  INFO 16564 --- [pack] [main] org.project.pack.PackApplicationTests    : Starting PackApplicationTests using Java 21 with PID 16564 (started by nnnjj in C:\Users\nnnjj\Desktop\Develop\SpringBootProjects\20240904-B)
+2024-09-04T23:56:48.398+09:00  INFO 16564 --- [pack] [main] org.project.pack.PackApplicationTests    : No active profile set, falling back to 1 default profile: "default"
+2024-09-04T23:56:49.537+09:00  INFO 16564 --- [pack] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-04T23:56:49.603+09:00  INFO 16564 --- [pack] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 59 ms. Found 7 JPA repository interfaces.
+2024-09-04T23:56:50.670+09:00  INFO 16564 --- [pack] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-04T23:56:50.777+09:00  INFO 16564 --- [pack] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-09-04T23:56:50.820+09:00  INFO 16564 --- [pack] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-09-04T23:56:51.148+09:00  INFO 16564 --- [pack] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-04T23:56:51.178+09:00  INFO 16564 --- [pack] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-09-04T23:56:51.181+09:00  WARN 16564 --- [pack] [main] c.zaxxer.hikari.util.DriverDataSource    : Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+2024-09-04T23:56:51.650+09:00  INFO 16564 --- [pack] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection oracle.jdbc.driver.T4CConnection@3164d5aa
+2024-09-04T23:56:51.652+09:00  INFO 16564 --- [pack] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-09-04T23:56:51.826+09:00  WARN 16564 --- [pack] [main] org.hibernate.orm.deprecation            : HHH90000025: OracleDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-09-04T23:56:52.854+09:00  INFO 16564 --- [pack] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-04T23:56:53.084+09:00  INFO 16564 --- [pack] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-04T23:56:53.514+09:00  INFO 16564 --- [pack] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-09-04T23:56:54.463+09:00  WARN 16564 --- [pack] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-04T23:56:54.513+09:00  INFO 16564 --- [pack] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name UDS
+2024-09-04T23:56:55.123+09:00  INFO 16564 --- [pack] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 0 endpoints beneath base path '/monitoring'
+2024-09-04T23:56:56.048+09:00  INFO 16564 --- [pack] [main] org.project.pack.PackApplicationTests    : Started PackApplicationTests in 7.928 seconds (process running for 8.795)
+2024-09-04T23:56:56.518+09:00  INFO 16564 --- [pack] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-04T23:56:56.521+09:00  INFO 16564 --- [pack] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-09-04T23:56:56.695+09:00  INFO 16564 --- [pack] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

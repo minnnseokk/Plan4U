@@ -1,0 +1,250 @@
+input{
+	min-width: 0;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.hidden {
+            display: none; /* 버튼을 숨깁니다 */
+        }
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+.numberrange{
+	display:flex;
+	align-items: center;
+	
+}
+#explanation:focus, #price:focus{
+   outline: none;
+}
+#explanation{
+	border:none;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+}
+#price{
+	border:none;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.nu:hover{
+	outline-style: none;
+}
+.functionCalculator {
+    border-radius: 15px;
+    height: auto;
+    background-color: #c6ebff;
+    display: flex;
+    flex-direction: column;
+    flex:1;
+    box-sizing: border-box;
+    padding: 15px;
+    box-shadow: 1px 3px 4px rgba(0, 0, 0, 0.3);
+}
+
+.calfunctionbox{
+	display:flex;
+	flex-direction: row;
+}
+
+.calculatorContainer {
+	box-sizing:border-box;
+	padding-right:15px;
+	padding-top:5px;
+	flex:1;
+}
+
+@media (max-width: 810px) {
+    .calfunctionbox {
+        flex-direction: column;
+    }
+    .calculatorContainer{
+    	padding-right:0;
+    }
+}
+
+.inputDiv, .btnDiv, .submitBtnDiv{
+	width:100%;
+	display:flex;
+	margin-bottom:5px;
+}
+
+.submitBtnDiv{
+	justify-content: flex-end;
+}
+
+.inputDiv input{
+	border-radius:5px;
+	border:1px solid;
+	flex:1;
+	height:30px;
+}
+
+.btnDiv{
+	gap:5px;
+	justify-content: flex-end;
+}
+
+.btnDiv button{
+	width:30px;
+	height:30px;
+	border-radius: 5px;
+	border:1px solid #c0c0c0;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.itemList{
+	min-height:40px;
+}
+.listItem{
+	border-radius:5px;
+	border:1px solid #c0c0c0;
+	background-color: #b2e4ff;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+	box-sizing:border-box;
+	padding:5px;
+	height:35px;
+	margin-bottom:5px;
+}
+.listItemtext{
+	border-radius:5px;
+	border:1px solid;
+	box-sizing:border-box;
+	padding:5px;
+	height:35px;
+	margin-bottom:5px;
+}
+
+.numPeople{
+	width:100%;
+	height:30px;
+	border-radius: 5px;
+}
+.nu{
+	margin-left: 20px;
+	border: none; /* 테두리 제거 */
+    background: transparent; /* 배경 제거 */
+    box-shadow: none; /* 그림자 제거 */
+    outline: none; /* 포커스 아웃라인 제거 */
+    font: inherit; /* 폰트 설정을 상속받도록 */
+    color: inherit; /* 텍스트 색상 설정을 상속받도록 */
+    text-align: right; /* 텍스트 정렬 기본값으로 설정 */
+    width:10%;
+}
+.calculatorResult{
+	border-radius:5px;
+	border:1px solid #c0c0c0;
+	background-color: #b2e4ff;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+	box-sizing:border-box;
+	padding:5px;
+	height:35px;
+	margin-top:5px;
+	margin-bottom:5px;
+}
+
+.submitButton{
+	width:60px;
+	height:30px;
+	border-radius: 5px;
+	border:1px solid;
+}
+
+.whole .middleArea .main .mainLeft .calculator {
+  width: 220px;
+  height: 260px;
+  border: 5px solid rgb(0, 0, 0);
+  border-radius: 10px;
+  padding: 10px;
+  background-color: #9fddff;
+}
+.whole .middleArea .main .mainLeft .display {
+  width: 100%;
+  height: 40px;
+  background: #f1f1f1;
+  border:1px solid #c0c0c0;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  text-align: right;
+  padding-right: 10px;
+  padding-left:10px;
+  font-size: 1.5em;
+  box-sizing: border-box;
+  overflow-x: auto;
+}
+.whole .middleArea .main .mainLeft .buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+  height: 80%;
+  margin-top: 10px;
+}
+.whole .middleArea .main .mainLeft .btn {
+  background: rgb(224, 224, 224);
+  width: 100%;
+  height: 100%;
+
+  border:1px solid #c0c0c0;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.whole .middleArea .main .mainLeft .btn:hover {
+  background: #d0d0d0;
+}
+.whole .middleArea .main .mainLeft .btn:active {
+  background: #b0b0b0;
+}
+
+.calresultbox{
+	box-sizing:border-box;
+	border:1px solid #c0c0c0;
+	background-color: #b2e4ff;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+	margin-top:10px;
+	width:100%;
+	height:250px;
+	overflow-x:hidden;
+	overflow-y:auto;
+}
+
+#calpreviewtitle{
+	background-color:#9fddff;
+	display:flex;
+	align-items:center;
+	box-sizing:border-box;
+	margin-bottom:5px;
+	padding-left:10px;
+	width:100%;
+	height:40px;
+}
+
+.calresultpreviewbox{
+	margin:5px;
+	margin-top:2px;
+	margin-bottom:3px;
+}
+
+.calresultbox::-webkit-scrollbar{
+	width:5px;
+}
+
+.calresultbox::-webkit-scrollbar-track{
+    width:5px;
+    background-color: white;
+    border-radius: 3px;
+}
+
+.calresultbox::-webkit-scrollbar-thumb{
+    width:5px;
+    background-color: #b2e4ff;
+    border-radius: 3px;
+}

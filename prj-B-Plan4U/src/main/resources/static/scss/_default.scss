@@ -1,0 +1,13 @@
+@import '_function.scss','_valuable.scss';
+
+html {
+    font-size: #{$defaultSize}px;
+}
+body,
+body *{
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    position: relative;
+    box-sizing: border-box;
+}

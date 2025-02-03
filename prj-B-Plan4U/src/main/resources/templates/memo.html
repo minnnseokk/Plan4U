@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title th:text="${room.title} + ' - 메모'">Memo Application</title>
+<link th:href="@{/css/header.css}" rel="stylesheet">
+<link th:href="@{/css/chatting.css}" rel="stylesheet">
+<link th:href="@{/css/memo.css}" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<script th:src="@{/js/memo.js}" defer></script>
+</head>
+<body>
+	<div class="whole">
+		<div id="topMenuDiv">
+   			<a href="/app/mainpage" id="mainLogoA">
+      			<img id ="logoImage" src="/image/임시로고.png">
+   			</a>
+   			<div id="topMenuRight">
+      			<div class="topMenuItem" th:text="${#authentication.name} + ' 님!'">사용자</div>
+      			<a class="topMenuItem logout" href="/app/logout">로그아웃</a>
+      			<a id="roomsetting" class="topMenuItem logout" th:href="@{/app/roomsetting/{id}(id=${room.id})}">방 정보 수정</a>
+   			</div>
+		</div>
+		<div class="middleArea">
+			<div class="middleHeader">
+				<div class="menu">
+					<div class="menuItem">
+						<a th:href="@{/app/base/{id}(id=${room.id})}" class="menuItemMain">메인</a>
+					</div>
+					<div class="menuItem">
+						<a th:href="@{/app/calendar/{id}(id=${room.id})}"
+							class="menuItemCalendar">캘린더</a>
+					</div>
+					<div class="menuItem">
+						<a th:href="@{/app/calculator/{id}(id=${room.id})}"
+							class="menuItemCalculator">계산기</a>
+					</div>
+					<div class="menuItem">
+						<a th:href="@{/app/memo/{id}(id=${room.id})}" class="menuItemMemo">메모장</a>
+					</div>
+					<div class="menuItem">
+						<a th:href="@{/app/gallery/{id}(id=${room.id})}"
+							class="menuItemUpload">갤러리</a>
+					</div>
+				</div>
+			</div>
+			<div class="notification">
+				<div class="notificationText" th:text="${room.title}">[제목]</div>
+			</div>
+			<div class="main">
+				<div class="mainLeft">
+					<div class="functionMemo">
+						<!-- 이 화면이 맨 처음 보여지는 화면 -->
+						<div id="memoviewarea">
+							<div id="memosearcharea">
+								<!-- 검색창을 만들건데 아직 구현안함 -->
+								<form method="get" th:action="@{/app/memo/{id}(id=${room.id})}"
+									id="memosearchform">
+									<input type="text" name="searchMemo" alt="검색창이 들어갈 자리" placeholder="내용을 입력하여 검색하세요"
+										id="searchinput">
+									<div id="searchbuttons">
+										<button type="submit" id="searchmemobutton">검색</button>
+										<!-- 메모 작성 화면으로 넘어가는 버튼 -->
+										<button type="button" id="writebutton" class="writebutton"
+											onclick="showMemoWrite()">메모 작성</button>
+										<!-- 메모 저장 버튼
+										<button type="submit" id="savebutton"class="writebutton hidden" onclick="showMemoView()">메모 저장</button> -->
+									</div>
+								</form>
+
+
+							</div>
+							<!-- db에 저장된 memo들을 불러와서 보여주는 부분 -->
+							<div id="memolist">
+								<div th:each="memo, iterStat : ${memos}"
+									th:if="${memo.room.id == room.id}" class="addmemo">
+									<div class="memodiv" data-memo-id="${memo.id}">
+										<div th:class="'memo-block memo-' + ${iterStat.index}">
+											<div class="memoinfo">
+												<div th:text="${memo.id}" class="memopreview">방 번호</div>
+												<div th:text="${memo.user.name}" class="memopreview">작성자</div>
+												<div th:text="${memo.writedate}" class="memo-date">작성된
+													날짜</div>
+											</div>
+											<div th:text="${memo.memo}" class="memopreviewmemo">적힌
+												글</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- 메모 작성 화면 -->
+					<div id="memoPopupBox" class="hidden">
+						<div id="memowritearea" class="hidden">
+							<div class="memowrite">
+								<form action="#" method="post"
+									th:action="@{/api/memo/{id}(id=${room.id})}">
+									<div id="memo">
+									<div id="memosubmitdiv">
+										<button type="submit" class="savebutton"
+											onclick="showMemoView()">메모 저장</button>
+									</div>
+									<input type="hidden" name="_csrf" th:value="${_csrf.token}" />
+									<textarea name="memo" rows="5" cols="40" required="required" placeholder="내용을 입력하세요"
+										></textarea>
+									</div>
+								</form>
+							</div>
+						</div>
+						<!-- 메모 내용을 보여주는 화면 -->
+						<div class="viewmemoarea hidden" id="viewmemoarea">
+							<div id="closeviewdiv">
+								<button type="button" id="closeviewmemo">닫기</button>
+							</div>
+							<div id="viewmemocontent"></div>
+						</div>
+					</div>
+				</div>
+				<div class="mainChatting">
+					<div class="chatting1">
+						<h4 class="chatting2" style="color:black" >
+                            [공지사항 :: /pop=]<br>
+                            <span id="announce">[공지사항]</span>
+                        </h4>
+						
+
+						<div class="online-users">
+							<h4 style="color: black">
+								접속 중 [<span id="user-count">0</span>명 :: <span id="user-list"></span>]
+							</h4>
+						</div>
+
+
+						<div id="chatting_area">
+							<div>
+								<template id="chattinglog">
+									<div class="chat">
+										<span class="author"></span> <span class="chatting"></span>
+									</div>
+								</template>
+							</div>
+						</div>
+						<div class="chatInputArea">
+							<input id="chatting_input">
+							<button id="chatting_button" type="button">입력</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script th:inline="javascript">
+	// ** 빨간줄 오류 아님 - authUser 이름 가져오기 
+	const currentUserName = [[${userName}]] + ': ';
+</script>
+<script th:src="@{/js/websocket.js}" defer></script>
+</html>

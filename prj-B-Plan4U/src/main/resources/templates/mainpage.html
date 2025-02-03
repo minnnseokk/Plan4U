@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:ts="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planner for U</title>
+    <link th:href="@{/css/mainpage.css}" rel="stylesheet">
+    <script th:src="@{/js/mainpage.js}" defer></script>
+</head>
+<body>
+	<header>
+		<div class="header">
+			<a href="/app/mainpage" id="mainLogoA">
+				<img id ="logoImage" src="/image/임시로고.png">
+			</a>
+			<div id="rightHeaderMenu">
+				<div class="rightMenuItem" th:text="${#authentication.name} + ' 님!'"></div>
+				<a class="rightMenuItem logout" href="/app/logout">로그아웃</a>
+			</div>
+		</div>
+	</header>
+
+	<main>
+		<div id="notice" class="close">공지를 적고 싶지만 뭘 적을지 모르겠습니다</div> <!-- 공지 펼치기 되려나 -->
+		<div id="main-container">
+			<div id="main-first">
+				<form id="roomSearchForm" method="get" action="/app/mainpage">
+					<div id="leftButtons">
+						<button type="button" class="create_box" onclick="movePage()">방 생성</button>
+					</div>
+					<select id="searchCategory" name="searchCategory">
+						<option value="title">방 제목</option>
+						<option value="hostName">호스트 이름</option>
+					</select>
+					<input id="searchInput" type="text" name="searchData" placeholder="방 제목 또는 호스트이름">
+					<button id="searchButton" type="submit">검색</button>
+				</form>
+			</div>
+			<div id="main-second">
+				<div th:each="room, iterStat : ${rooms}" class="roomBox"> <!-- 생성되는 div -->
+					<a th:href="@{/app/base/{id}(id=${room.id})}" class="room-link">
+						<div th:class="'room-block room-' + ${iterStat.index}">
+							<img th:src="@{${room.imagePath}}" class="roomImage" alt="Room Image">
+							<h2 th:text="${room.title}" th:title="${room.title}" class="roomTitle">Room Title</h2>
+							<p th:text="${room.subtitle}" th:title="${room.subtitle}" class="roomSubtitle">Room Subtitle</p>
+							<p th:text="${room.host.name}" class="host-name">host</p>
+							<!-- 게스트 목록과 인원수 표시 -->
+							<div class="guest-info">
+								<p class="tooltip"  th:classappend="${#lists.size(guestList[room.id]) == 0 ? 'no-tooltip' : ''}">
+									Guests-Info (<span th:if="${guestList[room.id] != null}"
+									th:text="${#lists.size(guestList[room.id])}"></span>명)
+									<span class="custom info">
+										<span th:text="${guestListForHover[room.id]}"></span>
+									</span>
+								</p>
+							</div>
+						</div>
+					</a>
+				</div> <!-- 생성되는 div -->
+				<div class ="roomPlusBox">
+					<div type="button" class="create_box movePage" onclick="movePage()"><img class="plusbutton" src="/image/plus2.png"></div>
+					<span class="plusroom movePage" onclick="movePage()">방 생성하기</span>
+				</div>
+			</div>
+		</div>
+	</main>
+
+<!-- 	<footer>
+		<div class="footer">
+			<div class="footer-content">
+				<div class="footer-info">
+					<p>사업자(법인)명: ㈜코리아아이티아카데미 노원</p>
+					<p>사업자번호: 174-86-02623</p>
+					<p>통신판매업번호: 제 2022-서울노원-0514 호</p>
+					<p>대표자: 김태호</p>
+					<p>개인정보책임자: 이지연</p>
+					<p>주소: 서울특별시 노원구 상계로1길 34 5층</p>
+					<p>교육담당자: 교육상담실</p>
+					<p>학원명: 코리아IT아카데미</p>
+					<p>학원등록번호: 서울북부 제2022-19호</p>
+					<p>전화문의: 02-933-5890</p>
+					<p>E-mail: rlaxogh3@koreaedugroup.com</p>
+				</div>
+				<div class="footer-right">
+					<p>강의명: 웹개발</p>
+					<p>팀: B팀</p>
+					<p>프로젝트명: Planner for U</p>
+				</div>
+			</div>
+			<div class="footer-copyright">
+					<p>Copyright © 2015-2024 KOREA INFORMATION TECHNOLOGY ACADEMY. ALL RIGHTS RESERVED.</p>
+			</div>
+		</div>
+	</footer> -->
+</body>
+</html>

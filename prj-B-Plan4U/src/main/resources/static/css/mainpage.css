@@ -1,0 +1,363 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh; /* Body를 최소한 화면 전체 크기로 설정 */
+}
+
+html, body {
+	height: 100%;
+	margin: 0;
+}
+
+header {
+	width: 80vw;
+	height: 60px;
+	margin-left: 10vw;
+}
+
+.header {
+	display: flex;
+	width: 100%;
+	height: 100%;
+	background-color: #c6ebff;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+	box-shadow: 0 3px 4px rgba(0, 0, 0, 0.2); /* 약간의 그림자 */
+}
+
+#mainLogoA {
+	margin-left: 10px;
+	height: 100%;
+}
+
+#logoImage {
+	height: 100%;
+	padding: 5px;
+}
+
+#rightHeaderMenu {
+	flex: 1;
+	display: flex;
+	justify-content: flex-end;
+	align-items: flex-end;
+}
+
+.rightMenuItem {
+	display: flex;
+	color: black;
+	width: 100px;
+	height: 100%;
+	padding: 5px;
+	text-decoration: none;
+	justify-content: center;
+	align-items: center;
+	transition: all 0.2s;
+}
+
+.logout:hover {
+	font-size: 18px;
+	color: #3b3b3b;
+	cursor: pointer; /* 마우스 커서 변경 */
+}
+
+main {
+	margin: 10px 10vw;
+	width: 80vw;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+}
+
+#notice {
+	display: flex;
+	width: 100%;
+	height: 60px;
+	border: 1px solid rgb(171, 171, 171);
+	border-radius: 15px;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 10px;
+	box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2); /* 약간의 그림자 */
+}
+
+#main-container {
+	border: 1px solid rgb(171, 171, 171);
+	border-radius: 15px;
+	padding: 15px;
+	box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2); /* 약간의 그림자 */
+	background-color: white;
+}
+
+#main-first {
+	width: 100%;
+	height: 25px;
+	margin-bottom: 10px;
+}
+
+#roomSearchForm {
+	display: flex;
+	gap: 10px;
+	width: 100%;
+	height: 100%;
+	justify-content: flex-end;
+}
+
+#leftButtons {
+	display: flex;
+	flex: 1;
+	gap: 10px;
+}
+
+#leftButtons button {
+	width: 80px;
+	border-radius: 5px;
+	border: none;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); /* 약간의 그림자 */
+	background-color: #c6ebff;
+	transition: background-color 0.2s;
+}
+
+#leftButtons button:hover {
+	background-color: #b2e4ff;
+	cursor: pointer; /* 마우스 커서 변경 */
+}
+
+#searchCategory, #searchInput, #searchButton {
+	border-radius: 5px;
+	border: none;
+	box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2); /* 약간의 그림자 */
+}
+
+#searchInput {
+	padding-left: 5px;
+}
+
+#searchButton {
+	width: 40px;
+	background-color: #c6ebff;
+	transition: background-color 0.2s;
+}
+
+#searchButton:hover {
+	background-color: #b2e4ff;
+	cursor: pointer; /* 마우스 커서 변경 */
+}
+
+#main-second {
+	width: 100%;
+	min-height: 300px;
+	max-height: 600px;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, 238px);
+	justify-content: center;
+	gap: 0;
+	overflow-y: auto;
+}
+
+#main-second::-webkit-scrollbar {
+	width: 5px;
+}
+
+#main-second::-webkit-scrollbar-track {
+	background-color: white;
+	border-radius: 3px;
+}
+
+#main-second::-webkit-scrollbar-thumb {
+	background-color: black;
+	border-radius: 3px;
+}
+
+.roomBox {
+	border: none;
+	box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2); /* 약간의 그림자 */
+	border-radius: 10px;
+	padding: 10px;
+	margin: 10px;
+	margin-top: 0;
+	overflow: hidden;
+	transition: transform 0.2s;
+}
+
+.roomBox:hover,.roomPlusBox:hover {
+	transform: scale(1.03);
+}
+
+.room-link {
+	text-decoration: none;
+	color: black;
+}
+
+.room-block {
+	display: grid;
+	grid-template-rows: 150px 35px 25px 20px 30px;
+	align-items: center;
+	text-align: center;
+	width: 197px;
+}
+
+.roomTitle, .roomSubtitle {
+	text-align: center;
+	width: 100%;
+	max-width: 197px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.roomSubtitle {
+	margin-bottom: 3px;
+}
+
+.host-name {
+	display: inline-block;
+	padding: 2px 5px;
+	background-color: #80ff80;
+	border-radius: 4px;
+	font-size: 13px;
+}
+
+.guest-info {
+	display: flex;
+	justify-content: center;
+	margin-top: 10px;
+	width: 100%;
+}
+
+.roomImage {
+	border-radius: 5px;
+	width: 198px;
+	height: 145px;
+	margin-bottom: 5px;
+}
+
+img.plusbutton {
+	width: 150px;
+	height: 150px;
+	margin-top: 30%;
+}
+
+div.create_box {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 20px;
+}
+
+.plusroom {
+	display: flex;
+	justify-content: center;
+}
+
+.roomPlusBox {
+	box-sizing: border-box;
+	padding: 10px;
+	margin: 10px;
+	margin-top: 0;
+	overflow: hidden;
+	transition: transform 0.2s;
+}
+
+.footer {
+	background-color: #c6ebff;
+	padding: 15px;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+	box-shadow: 0 -3px 4px rgba(0, 0, 0, 0.2); /* 상단에 약간의 그림자 */
+	margin-top: auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.footer-content {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	flex-grow: 1;
+}
+
+.footer-info {
+	width: 50%;
+	font-size: 0.9em; /* 폰트 크기를 작게 */
+}
+
+.footer-info p {
+	margin-bottom: 5px;
+}
+
+.footer-right {
+	width: 50%;
+	text-align: right;
+	font-size: 0.9em; /* 폰트 크기를 작게 */
+}
+
+.footer-right p {
+	margin-bottom: 5px;
+}
+
+.footer-copyright {
+	text-align: center;
+	font-size: 0.75em; /* 폰트 크기를 더 작게 */
+}
+
+.tooltip {
+	position: relative;
+	display: inline-block;
+	cursor: pointer; /* 마우스 커서 변경 */
+}
+
+.tooltip .custom {
+	display: flex;
+	font-size: 11px;
+	visibility: hidden; /* 기본적으로 숨김 */
+	width: 220px; /* 툴팁 너비 */
+	height: 250px;
+	background: rgba(211, 211, 211, 0.92); /* 반투명 배경 */
+	color: black; /* 툴팁 텍스트 색상 */
+	text-align: left; /* 텍스트 정렬 */
+	padding: 10px; /* 패딩 */
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* 그림자 */
+	position: absolute; /* 절대 위치 */
+	bottom: 100%; /* 툴팁 위치 조정 */
+	left: 50%;
+	margin-left: -110px; /* 툴팁의 중앙을 맞추기 위해 이동 */
+	z-index: 1; /* 다른 요소 위에 표시 */
+	white-space: pre-wrap; /* 텍스트에서 공백과 줄바꿈을 유지 */
+	overflow-y: auto;
+}
+
+.tooltip .custom::-webkit-scrollbar {
+	width: 10px;
+}
+
+.tooltip .custom::-webkit-scrollbar-track {
+	width: 10px;
+	background: rgba(211, 211, 211, 0.92);
+}
+
+.tooltip .custom::-webkit-scrollbar-thumb {
+	width: 10px;
+	background-color: rgb(137, 137, 137);
+}
+
+.tooltip:hover .custom {
+	visibility: visible; /* 마우스 올리면 표시 */
+}
+
+.tooltip .custom span {
+	flex: 1;
+}
+
+.no-tooltip .custom {
+	display: none; /* 툴팁 숨기기 */
+}
+
+.movePage:hover {
+	cursor: pointer; /* 마우스 커서 변경 */
+}

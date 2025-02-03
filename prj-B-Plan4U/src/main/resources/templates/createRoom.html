@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:ts="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planner for U - 방 생성</title>
+    <link th:href="@{/css/createRoom.css}" rel="stylesheet">
+    <script th:src="@{/js/inviteMethod.js}" defer></script>
+</head>
+<body>
+    <header>
+		<div class="header">
+			<a href="/app/mainpage" id="mainLogoA">
+				<img id ="logoImage" src="/image/임시로고.png">
+			</a>
+			<div id="rightHeaderMenu">
+				<div class="rightMenuItem" th:text="${#authentication.name} + ' 님!'"></div>
+				<a class="rightMenuItem"href="/app/mainpage">메인으로</a>
+			</div>
+		</div>
+    </header>
+    <main>
+        <div class="main-container">
+            <form th:action="@{/api/createroom}" method="post" id="createForm" enctype="multipart/form-data">
+				<div class="form-content">
+					<div class="form-left">
+						<p>
+							<label for="title">방 제목 :</label>
+							<input type="text" id="title" name="title" onkeydown="if(event.key === 'Enter') { event.preventDefault(); }" required>
+						</p>
+						<p>
+							<label for="subtitle">방 설명 :</label>
+							<input type="text" id="subtitle" name="subtitle" onkeydown="if(event.key === 'Enter') { event.preventDefault(); }">
+						</p>        
+						<p id="imageP">
+							<label for="files" style="min-width:90px;">방 이미지 :</label>
+							<input type="file" id="files" name="files" accept="image/*">
+						</p>
+						<div id="imgPreviewDiv"></div>
+					</div>
+					<div class="form-right">
+						<p> <!-- 초대에 영향이 가는 부분 -->
+							<label for="name">검색 :</label>
+							<input placeholder="이름을 입력하세요" type="text" id="name"  name="name" oninput="debouncedSearchUser()" onkeydown="if(event.key === 'Enter') { event.preventDefault(); }"> <!-- searchUser() 사용 -->
+						</p>
+						<div id = searchingList> 
+							<span>이메일 목록</span>
+							<!-- th:fragment 파일이 들어가게 됨 -->
+							<div id = "dropdownContainer"th:fragment="emailList">
+								<ul class="scrollBox"style = "list-style: none;">
+									<li th:each="searchData : ${searchResult}">
+										<span th:text="${searchData.name}+' - '"></span> <!-- 이름 부분 각종 꾸밈요소 -->
+										<a style="color:black; text-decoration: none;"
+										th:text="${searchData.email}" href="javascript:void(0);" 
+										class="email-link"
+										th:data-email="${searchData.email}"
+										onclick="manageInviteList(event)"></a>
+										<!-- li 태그로 반복되는 목록을 th:each 로 출력 -->
+										<!-- href="javascript:void(0);" 링크 클릭시 새로고침 막음 -->
+										<!-- th:email-data 의 attribute 로 함수의 매개변수 event 에 데이터를 전달했다 -->
+									</li>
+								</ul>
+							</div>
+						</div>
+				
+						<span>초대할 인원 목록</span>
+						<div id="finalEmails" th:fragment="finalList">
+							<ul id="inviteScroll"class="scrollBox"style = "list-style: none;">
+								<li th:each="finalData : ${finalDatas}">
+									<a style="color:black;text-decoration: none;" 
+									th:text="${finalData}"  href="javascript:void(0);" 
+									th:data-email="${finalData}" class="final-email"
+									onclick="manageInviteList(event)"></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div id="submitButtonDiv">
+					<button id="submitButton"type="submit">생성</button>
+				</div>
+	        </form>
+	    </div>
+    </main>
+</body>
+</html>

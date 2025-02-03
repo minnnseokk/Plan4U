@@ -1,0 +1,4 @@
+@import '_valuable.scss';
+@function ptr($px : $defaultSize){
+    @return #{$px / $defaultSize}rem;
+}

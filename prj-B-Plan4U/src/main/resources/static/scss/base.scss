@@ -1,0 +1,134 @@
+@import url("_default.scss");
+
+*{
+    margin:0;
+}
+html{
+    height:100%;
+}
+body{
+    min-height: 100%;
+    background-color: rgb(65,68,75);
+}
+
+.whole{
+    padding-right:10vw;
+    padding-left:10vw; 
+    padding-top:60px;
+    .middleArea{
+        width:80vw;
+        .middleHeader{
+            .menu{
+                border-radius: 15px;
+                width:80vw;
+                height:50px;
+                background-color: rgb(130, 144, 181);
+                display: flex;
+                .menuItem{
+                    width:16.5%;
+                    height:50px;
+                    display:flex;
+                    .menuItemMain, .menuItemCalendar, .menuItemVote, .menuItemCalculator, .menuItemMemo, .menuItemUpload {
+                        border-radius: 15px;
+                        display: block;
+                        width:100%;
+                        height:42px;
+                        text-decoration: none;
+                        font-size: 20px;
+                        color:white;
+                        text-align: center;
+                        line-height: 50px;
+                    }
+                    .menuItemMain:hover, .menuItemCalendar:hover, .menuItemVote:hover, .menuItemCalculator:hover, .menuItemMemo:hover, .menuItemUpload:hover{
+                        background-color:rgb(65,68,75);
+                        border: 4px solid rgb(93, 97, 107);
+                    }
+                }
+            }
+        }
+        .notification{
+            width:100%;
+            height:60px;
+            display:grid;
+            place-items: center;
+            .notificationText{
+                width:100%;
+                text-align: center;
+                color:white;
+                white-space: nowrap;
+                overflow:hidden;
+                text-overflow: ellipsis;
+            }
+        }
+        .main{
+            width:80vw;
+            display: flex;
+            .mainLeft{
+                padding-right: 20px;
+                width:75%;
+                .functionMain{
+                    border-radius: 15px;
+                    height:200vh;
+                    background-color: rgb(93, 97, 107);
+                    display:flex;
+                }
+                .functionCalendar{
+                    border-radius: 15px;
+                    height:200vh;
+                    background-color: rgb(93, 97, 107);
+                    display:flex;
+                }
+                .functionVote{
+                    border-radius: 15px;
+                    height:200vh;
+                    background-color: rgb(93, 97, 107);
+                    display:flex;
+                }
+                .functionCalculator{
+                    border-radius: 15px;
+                    height:200vh;
+                    background-color: rgb(93, 97, 107);
+                    display:flex;
+                }
+                .functionMemo{
+                    border-radius: 15px;
+                    height:200vh;
+                    background-color: rgb(93, 97, 107);
+                    display:flex;
+                }
+                .functionUpload{
+                    border-radius: 15px;
+                    height:200vh;
+                    background-color: rgb(93, 97, 107);
+                    display:flex;
+                }
+            }
+            .mainChatting{
+                border-radius: 15px;
+                width:30%;
+                min-width: 200px;
+                height:80vh;
+                background-color: rgb(93, 97, 107);
+                position:sticky;
+                top: 20px;
+                padding-bottom: 3%;
+                .chatting1{
+                    margin-top:3%;
+                    margin-left: 3%;
+                    margin-right: 3%;
+                    flex:1;
+                    height:100%;
+                    border: 2px solid rgb(65,68,75);
+                    .chatting2{
+                        flex:1;
+                        margin-top:2%;
+                        margin-left: 3%;
+                        margin-right: 3%;
+                        height:80px;
+                        border: 2px solid rgb(65,68,75);
+                    }
+                }
+            }
+        }
+    }
+}

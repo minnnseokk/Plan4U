@@ -1,0 +1,157 @@
+.basepreviewmemo {
+	width: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.basememopreview {
+	margin-right: 10px;
+}
+
+.basepreview {
+	display: block;
+	border-radius: 10px;
+	width: 100%;
+	box-sizing: border-box;
+	padding: 5px;
+	margin-bottom: 10px;
+	background-color: #b2e4ff;
+	box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.whole .middleArea .main .mainLeft .functionMain {
+	box-sizing: border-box;
+    padding: 15px;
+    border-radius: 15px;
+    width: 100%;
+    height: 100%;
+    background-color: #c6ebff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 1px 3px 4px rgba(0, 0, 0, 0.3);
+
+}
+
+.addmemo {
+	border-radius: 5px;
+    background-color: #9fddff;
+	box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+	margin: 3px;
+	margin-bottom:5px;
+	padding:2px;
+}
+
+
+.memoinfo {
+	display: flex;
+}
+
+#memopreviewtitle {
+	padding: 5px;
+}
+
+#gallerypreviewtitle {
+	padding: 5px;
+}
+
+#galpreviewslide {
+	display: flex;
+	width: 100%;
+	overflow-x: auto;
+	gap: 10px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+#galpreview {
+	box-sizing: border-box;
+	padding: 5px;
+}
+
+.galpreviewbox img {
+	max-height: 150px;
+}
+
+#galpreviewslide::-webkit-scrollbar {
+	width: 10px;
+}
+
+#galpreviewslide::-webkit-scrollbar-track {
+	background-color: white;
+	border-radius: 10px;
+}
+
+#galpreviewslide::-webkit-scrollbar-thumb {
+	background-color: #c6ebff;
+	border-radius: 10px;
+}
+
+.galpreviewbox {
+	margin-bottom: 3px;
+}
+
+.memoid {
+	text-align: center;
+	border-radius: 10px;
+	background-color: white;
+	width: 21px;
+	height: 21px;
+}
+
+#calpreviewtitle {
+	padding: 5px;
+}
+
+.calresultpreviewbox {
+	border-radius: 5px;
+    background-color: #9fddff;
+	box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+	margin: 3px;
+	margin-bottom:5px;
+	padding:2px;
+}
+
+
+#memopreviewcontainer {
+	max-height: 200px;
+	overflow-y: auto;
+}
+
+#memopreviewcontainer::-webkit-scrollbar {
+	width: 5px;
+}
+
+#memopreviewcontainer::-webkit-scrollbar-track {
+	width: 5px;
+	background-color: white;
+	border-radius: 3px;
+}
+
+#memopreviewcontainer::-webkit-scrollbar-thumb {
+	width: 5px;
+	background-color: #c6ebff;
+	border-radius: 3px;
+}
+
+#calpreviewcontainer {
+	max-height: 150px;
+	overflow-y: auto;
+}
+
+#calpreviewcontainer::-webkit-scrollbar {
+	width: 5px;
+}
+
+#calpreviewcontainer::-webkit-scrollbar-track {
+	width: 5px;
+	background-color: white;
+	border-radius: 3px;
+}
+
+#calpreviewcontainer::-webkit-scrollbar-thumb {
+	width: 5px;
+	background-color: #c6ebff;
+	border-radius: 3px;
+}
