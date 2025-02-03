@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:ts="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Planner for U - 로그인</title>
+    <link th:href="@{/css/login.css}" rel="stylesheet">
+</head>
+<body>
+    <div class="login">
+        <div class="content">
+            <div class="mainlogo">
+                <img alt="로고 이미지" src="/image/임시로고.png">
+            </div>
+            <div class="logos">
+                <a class="google logo" href="/oauth2/authorization/google">
+                    <div><img alt="구글" src="/image/googleIcon.png"></div>
+                </a>
+                <a class="kakao logo" href="/oauth2/authorization/kakao">
+                    <div><img alt="카카오" src="/image/kakaoIcon.png"></div>
+                </a>
+                <a class="naver logo" href="/oauth2/authorization/naver">
+                    <div><img alt="네이버" src="/image/naverIcon.png"></div>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

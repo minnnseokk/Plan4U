@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:ts="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title th:text="${room.title} + ' - 설정'">방 수정 페이지</title>
+<link th:href="@{/css/roomsetting.css}" rel="stylesheet">
+<script th:src="@{/js/roomsetting.js}" defer></script>
+<script th:src="@{/js/inviteMethod.js}" defer></script>
+</head>
+<body>
+	<header>
+		<div class="header">
+			<a href="/app/mainpage" id="mainLogoA"> <img id="logoImage"
+				src="/image/임시로고.png">
+			</a>
+			<div id="rightHeaderMenu">
+				<div class="rightMenuItem" th:text="${#authentication.name} + ' 님!'"></div>
+				<a class="rightMenuItem" th:href="@{/app/base/{id}(id=${room.id})}">돌아가기</a>
+			</div>
+		</div>
+	</header>
+	<main>
+		<div class="main">
+			<div class="main-container hostMain" th:if=${isHost}>
+				<div id="guestTitle">
+					<div class="uprows">초대된 게스트 목록</div>
+					<div class="uprows">게스트 추가</div>
+				</div>
+				<div id="guestFunction">
+					<!-- 게스트 삭제 폼 -->
+					<div id="guestDelete" class="downrows">
+						<ul class="scrollBox1"
+							style="list-style: none; width: 100%; height: 100%;">
+							<li th:each="guest : ${users}"
+								style="margin-bottom: 5px; display: flex; gap: 10px;"><span
+								th:text="${guest.name}+' - '"></span> <span
+								th:text="${guest.email}"></span>
+								<button th:data-email="${guest.email}"
+									th:data-roomId="${room.id}" onclick="deluser(event)"
+									style="margin-left: auto;">삭제</button></li>
+						</ul>
+					</div>
+					<!-- 게스트 추가 폼 -->
+					<form th:action="@{/api/addguest/{id}(id=${room.id})}"
+						method="post" id="addGuestForm" class="downrows">
+						<p id="guestSearch">
+							<!-- 초대에 영향이 가는 부분 -->
+							<label for="name" >검색 :</label> <input type="text" id="name"
+								name="name" oninput="debouncedSearchUser()" placeholder="이름을 입력하세요"
+								onkeydown="if(event.key === 'Enter') { event.preventDefault(); }">
+						</p>
+						<div id="searchingList">
+							<span>이메일 목록</span>
+							<div id="dropdownContainer" th:fragment="emailList">
+								<ul class="scrollBox" style="list-style: none;">
+									<li th:each="searchData : ${searchResult}"
+										style="margin-bottom: 3px;">
+										<span th:text="${searchData.name} + ' - '"></span> 
+										<a style="text-decoration: none;" th:text="${searchData.email}"
+										href="javascript:void(0);" class="email-link"
+										th:data-email="${searchData.email}"
+										onclick="manageInviteList(event)"></a></li>
+								</ul>
+							</div>
+							<span>초대할 인원 목록</span>
+							<div id="finalEmails" th:fragment="finalList">
+								<ul class="scrollBox" style="list-style: none;">
+									<li th:each="finalData : ${finalDatas}"><a
+										style="text-decoration: none;" th:text="${finalData}"
+										href="javascript:void(0);" th:data-email="${finalData}"
+										class="final-email" onclick="manageInviteList(event)"></a></li>
+								</ul>
+							</div>
+						</div>
+						<button type="submit" >저장</button>
+					</form>
+				</div>
+				<!-- 방 삭제 버튼 -->
+				<div id="bottomButtonCover">
+					<button type="button" onclick="handleDelete(event)"
+						th:data-roomid="${room.id}">방 삭제</button>
+				</div>
+			</div>
+			<!-- 방 나가기 버튼-->
+			<div id="roomOutDiv" th:unless="${isHost}">
+				<form id="roomOutForm" th:action="@{/api/delme/{id}(id=${room.id})}"
+					method="post" onsubmit="return confirmExit()">
+					<button id="roomOutButton" type="submit">방에서 나가기</button>
+				</form>
+			</div>
+		</div>
+		<script>
+			function confirmExit() {
+				return confirm("정말로 방에서 나가시겠습니까?");
+			}
+		</script>
+	</main>
+</body>
+</html>

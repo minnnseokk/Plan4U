@@ -1,0 +1,199 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    padding-left:10vw;
+}
+
+header{
+	width:80vw;
+	height:60px;
+}
+
+main{
+	margin-top:15px;
+	width:80vw;
+}
+
+ul {
+	padding:0;
+}
+
+p{
+	display:flex;
+	gap:10px;
+}
+
+input:focus{
+	outline: none;
+}
+
+#title, #subtitle, #name{
+	flex:1;
+	border:none;
+	border-radius: 5px;
+	min-width: 0;
+	box-sizing: border-box;
+    padding-left: 5px;
+}
+
+.header{
+	display:flex;
+	width:100%;
+	height:100%;
+	background-color:#c6ebff;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+	box-shadow: 0 3px 4px rgba(0, 0, 0, 0.2); /* 약간의 그림자 */
+	border-radius: 15px;
+    
+}
+
+#mainLogoA{
+	margin-left:10px;
+	height:100%;
+}
+
+#logoImage{
+	box-sizing:border-box;
+	height:100%;
+	padding:5px;
+}
+
+#rightHeaderMenu{
+	flex:1;
+	display:flex;
+	justify-content: flex-end;
+}
+
+.rightMenuItem{
+	display:flex;
+	color:black;
+	box-sizing:border-box;
+	width:100px;
+	height:100%;
+	padding:5px;
+	text-decoration: none;
+	justify-content: center;
+    align-items: center;
+    transition: all 0.2s;
+}
+a.rightMenuItem:hover{
+	font-size: 18px;
+	color: #3b3b3b;
+	cursor: pointer; /* 마우스 커서 변경 */
+}
+
+.main-container{
+    width:100%;
+    height:600px;
+    border-radius: 15px;
+    background-color:#c6ebff;
+    color:black;
+    border-radius: 15px;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.2); /* 약간의 그림자 */
+}
+
+#createForm{
+	width:100%;
+	height:100%;
+	display:grid;
+	grid-template-rows:1fr 60px;
+}
+
+.form-content{
+	width:100%;
+	display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.form-left{
+	padding:10px;
+	display: grid;
+    grid-template-rows: 21px 21px 21px 1fr;
+	gap:5px;
+}
+
+.form-right{
+	padding:10px;
+	display: grid;
+    grid-template-rows: 21px 1fr 21px 1fr;
+	gap:5px;
+}
+
+#dropdownContainer{
+	height:100%;
+}
+
+#finalEmails{
+    height: 100%;
+}
+
+.scrollBox{
+	box-sizing:border-box;
+	padding:5px;
+	height:200px;
+	overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.scrollBox::-webkit-scrollbar{
+	width:5px;
+}
+
+.scrollBox::-webkit-scrollbar-track{
+    width:5px;
+    background-color: white;
+    border-radius: 3px;
+}
+
+.scrollBox::-webkit-scrollbar-thumb{
+    width:5px;
+    background-color: #b2e4ff;
+    border-radius: 3px;
+}
+
+#imgPreviewDiv{
+	display:flex;
+	justify-content: center;
+}
+
+#imgPreviewDiv img{
+	margin-top:50px;
+	width:198px;
+	height:145px;
+	border:1px solid black;
+}
+
+#searchingList{
+	display: grid;
+    grid-template-rows: 21px 1fr;
+}
+
+#submitButtonDiv{
+	display:flex;
+	box-sizing: border-box;
+	padding:10px;
+}
+
+#submitButton{
+	border-radius: 5px;
+	width:150px;
+	height:100%;
+}
+#submitButton:hover{
+	background-color: rgb(204, 204, 204);
+	cursor: pointer; /* 마우스 커서 변경 */
+}
+
+#files{
+	width:100%;
+}
+
+#imageP{
+    display:grid;
+    grid-template-columns: 90px 1fr;
+}

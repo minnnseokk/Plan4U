@@ -1,0 +1,32 @@
+@import url("_default.scss");
+
+body{
+    background-color: #8d59d0;
+    display: flex;
+    justify-content: center;
+}
+div.login{
+    border: 1px solid black;
+    width: 45rem;
+    height: 27rem;
+    position: absolute;
+    top: 20%;
+    background-color: #ab93ca;
+    display: grid;
+    grid-template-columns: 7fr 3fr;
+    grid-template-rows: 3fr 7fr;
+    > .logos{
+        padding: 20px;
+        display: inline-block;
+        > a.logo > div {
+        margin: 1rem; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        > img{
+            width: 15rem;
+
+        }
+    }
+}
+}

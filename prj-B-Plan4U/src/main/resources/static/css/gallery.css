@@ -1,0 +1,182 @@
+.whole .middleArea .main .mainLeft .functionUpload {
+	box-sizing:border-box;
+	padding:15px;
+	border-radius: 15px;
+	width: 100%;
+	height: 80vh;
+	background-color: #c6ebff;
+	display: flex;
+	flex-direction:column;
+	gap:15px;
+	box-shadow: 1px 3px 4px rgba(0, 0, 0, 0.3);
+}
+
+.gallery {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px; /* 이미지 사이의 간격 */
+}
+
+.gallery img {
+	max-width: 100%;
+	max-height: 200px; /* 이미지 최대 높이 설정 */
+	object-fit: cover; /* 이미지가 컨테이너를 넘치지 않게 조정 */
+	cursor: pointer; /* 이미지 클릭 시 커서 변경 */
+}
+
+/* 모달 스타일 */
+.modal {
+	display: none; /* 기본적으로 숨김 */
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.8); /* 배경 반투명 블랙 */
+	padding-top: 60px;
+}
+
+.modal-content {
+	background-color: #fefefe;
+	margin: 5% auto;
+	padding: 20px;
+	border: 1px solid #888;
+	width: 80%;
+	max-width: 900px;
+}
+
+.modal-content img {
+	width: 100%;
+	height: auto;
+}
+
+.close {
+	color: #aaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.close:hover, .close:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+#imageContainer {
+	width:100%;
+	display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    overflow-x:hidden;
+}
+
+.uploadImageBox{
+	max-height:150px;
+}
+
+.uploadImageBox img{
+	display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    box-sizing:border-box;
+    border:1px solid black;
+}
+
+#imageUploadForm {
+	display: flex;
+	width: 100%;
+}
+
+#imageUploadContainer {
+	width: 100%;
+}
+
+#galleryScrollBox::-webkit-scrollbar {
+	width: 5px;
+}
+
+#galleryScrollBox::-webkit-scrollbar-track {
+	background-color: white;
+	border-radius: 3px;
+}
+
+#galleryScrollBox::-webkit-scrollbar-thumb {
+	background-color: #b2e4ff;
+	border-radius: 3px;
+}
+
+.imageInputWrapper {
+	width: 100%;
+	position: relative;
+	display: flex;
+	margin-right: 5px;
+	flex-wrap: wrap;
+}
+
+.imageInputWrapper input[type="file"] {
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	width: 100%;
+	height: 100%;
+	
+	cursor: pointer; /* 마우스 커서 변경 */
+}
+
+.imageInputButton {
+	display: flex;
+	padding: 10px 20px;
+	font-size: 16px;
+	color: white;
+	background-color: rgb(102, 174, 255);
+	border-radius: 5px;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 30px;
+	overflow: hidden;
+}
+
+#imageSubmitButton {
+	width: 50px;
+	border: none;
+	border-radius: 5px;
+}
+#imageSubmitButton:hover{
+	background-color: rgb(204, 204, 204);
+	cursor: pointer; /* 마우스 커서 변경 */
+}
+
+#imagePreview {
+	justify-content: center;
+	align-items: center;
+	border-radius: 5px;
+	margin-top: 5px;
+	color: white;
+	background-color: rgb(102, 174, 255);
+	box-sizing: border-box;
+	display: flex;
+	width: 100%;
+	min-height: 100px;
+	gap: 5px;
+	padding: 10px;
+	overflow-x: hidden;
+	flex-wrap: wrap;
+}
+
+#imagePreview img {
+	max-height: 80px;
+	max-width: 80px;
+}
+
+#galleryScrollBox{
+	box-sizing:border-box;
+	width:100%;
+	height:100%;
+	overflow-x:hidden;
+    overflow-y:auto;
+}

@@ -1,0 +1,255 @@
+.hidden {
+	display: none;
+}
+
+.visible {
+	display: block;
+}
+
+.memodiv {
+	border: 1px solid #44bdff;
+	border-radius: 5px;
+	padding: 15px;
+	margin-top: 15px;
+	cursor: pointer;
+	background-color: #9fddff;
+	transition: background-color 0.3s;
+	height: 60px;
+	box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.memodiv:hover {
+	background-color: #f0f0f0;
+}
+
+.memo-block {
+	margin-bottom: 5px;
+}
+
+.viewmemoarea {
+	word-wrap:break-word;word-break:break-all;
+	border: 1px solid #9fddff;
+	border-radius: 15px;
+	height: 80vh;
+	position: sticky;
+	top: 20px;
+	background-color: #c6ebff;
+	box-shadow: 1px 3px 4px rgba(0, 0, 0, 0.3);
+}
+
+.functionMemo {
+	box-sizing:border-box;
+	border-radius: 15px;
+	height: 80vh;
+	background-color: #c6ebff;
+	display: flex;
+	box-shadow: 1px 3px 4px rgba(0, 0, 0, 0.3);
+	max-width: 100%;
+	padding: 15px;
+	flex:1;
+}
+
+.shrinkedFunctionMemo {
+	margin-right:15px;
+	width: 40%;
+	min-width: 250px;
+}
+
+#memoviewarea {
+	width: 100%;
+	height: 97%;
+}
+
+#memosearcharea {
+	display: flex;
+	width: 100%;
+}
+
+#searchinput {
+	border-radius: 5px;
+	flex: 1;
+	min-width: 35%;
+	border: 0px solid rgb(171, 171, 171);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+}
+#searchinput:focus{
+	outline: none;
+}
+
+#searchbuttons {
+	padding-left: 5px;
+	float: right;
+	
+}
+
+#searchmemobutton {
+	border-radius: 5px;
+	width: 45px;
+	height: 25px;
+	border: 0px solid rgb(171, 171, 171);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+}
+#searchmemobutton:hover,.writebutton:hover{
+	background-color: rgb(204, 204, 204);
+	cursor: pointer; /* 마우스 커서 변경 */
+}
+
+.writebutton, .savebutton {
+	border-radius: 5px;
+	width: 75px;
+	height: 25px;
+	border: 0px solid rgb(171, 171, 171);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+#memolist {
+	width: 100%;
+	height: 99%;
+	overflow-y: scroll;
+	scrollbar-width: none;
+	-ms-overflow-style: none;
+}
+
+#memolist::-webkit-scrollbar {
+	display: none;
+}
+
+.memoinfo {
+	display: flex;
+}
+
+.addmemo {
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.memowrite {
+	position: sticky;
+	top: 25px;
+}
+
+#memowritearea {
+	width: 100%;
+	flex: 1;
+}
+
+#memo {
+	background-color: #c6ebff;
+	color: white;
+	font-size: 16px;
+	box-sizing: border-box;
+	border-radius: 15px;
+	height: 70vh;
+	padding: 10px;
+	box-shadow: 1px 3px 4px rgba(0, 0, 0, 0.3);
+	display:flex;
+	flex-direction:column;
+	justify-content: center;
+}
+
+#memo textarea{
+	resize: none;
+	border-radius: 13px;
+	width: auto;
+	height: 60.2vh;
+	padding: 10px;
+	border: 0px solid;
+	font-family: 'Roboto', sans-serif;
+}
+#memo textarea:focus{
+	outline: none;
+}
+.savebutton{
+	margin-bottom: 6px;
+}
+.savebutton:hover{
+	background-color: rgb(204, 204, 204);
+	cursor: pointer; /* 마우스 커서 변경 */
+}
+.memotitle{
+	border-radius: 5px;
+	border: 1px solid #44bdff;
+	padding:4px;
+	box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+}
+.memotext{
+	border-radius: 5px;
+	border: 1px solid #44bdff;
+	flex:1;
+	padding:4px; 
+	margin-top: 5px;
+	box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+#viewmemocontent {
+	display: flex;
+    flex-direction: column;
+	box-sizing:border-box;
+	margin-top: 5px;
+	padding-right: 5px;
+	padding-left: 10px;
+	margin-right:5px;
+	height: 87%;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+#viewmemocontent::-webkit-scrollbar {
+	width: 5px;
+}
+
+#viewmemocontent::-webkit-scrollbar-track {
+	background-color: white;
+	border-radius: 3px;
+}
+
+#viewmemocontent::-webkit-scrollbar-thumb {
+	background-color: #98d2f2;
+	border-radius: 3px;
+}
+
+#memosubmitdiv {
+	display: flex;
+	justify-content: flex-end;
+}
+
+#closeviewdiv {
+	display: flex;
+	justify-content: flex-end;
+	padding-top: 15px;
+	padding-right: 15px;
+}
+
+#closeviewmemo {
+	width:45px;
+	height:25px;
+	border-radius: 5px;
+	border:1px solid rgb(171, 171, 171);
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+#closeviewmemo:hover{
+	background-color: rgb(204, 204, 204);
+	cursor: pointer; /* 마우스 커서 변경 */
+}	
+
+#memosearchform {
+	width: 100%;
+	display: flex;
+	
+}
+
+.memopreviewmemo {
+	width: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.memopreview {
+	padding-right: 10px;
+}
+
+#memoPopupBox{
+	width:100%;
+	min-width:0;
+}
